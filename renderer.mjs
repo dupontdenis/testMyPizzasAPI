@@ -52,8 +52,8 @@ function renderPizzaCard(pizza, showPrice) {
  * @returns {string} - HTML string for price
  */
 function renderPrice(price) {
-  return `<div style="color: #28a745; font-size: 1.5rem; font-weight: bold;">
-            💵 $${price}
+  return `<div style="color: #28a745; font-size: 1.1rem; font-weight: bold;">
+            💵€ ${price} EUR
         </div>`;
 }
 
@@ -90,8 +90,8 @@ function renderIngredientCard(ingredient, price) {
         <div class="card">
             <div class="card-body" style="text-align: center;">
                 <div class="pizza-ingredients">${ingredient}</div>
-                <div style="color: #28a745; font-size: 1.8rem; font-weight: bold;">
-                    💵 $${price}
+                <div style="color: #28a745; font-size: 1.2rem; font-weight: bold;">
+                    💵 $${price} USD / €${price} EUR
                 </div>
             </div>
         </div>
@@ -117,8 +117,8 @@ export function renderPizzaPrice(priceData, priceId) {
                       )}</div>`
                     : ""
                 }
-                <div style="color: #28a745; font-size: 2.5rem; font-weight: bold; margin-top: 1rem;">
-                    💵 $${priceData.price}
+                <div style="color: #28a745; font-size: 1.8rem; font-weight: bold; margin-top: 1rem;">
+                    💵 $${priceData.price} USD / €${priceData.price} EUR
                 </div>
             </div>
         </div>
@@ -132,14 +132,16 @@ export function renderPizzaPrice(priceData, priceId) {
  * @returns {string} - HTML string for custom pizza price
  */
 export function renderCustomPizzaPrice(ingredients, result) {
+  const price = result.price || result.total || 0;
   return `
         <div class="card" style="max-width: 600px; margin: 0 auto;">
             <div class="card-body" style="text-align: center; padding: 2rem;">
-                <h4 style="color: #d1242f;">Custom Pizza</h4>
-                <div class="pizza-ingredients">${ingredients.join(" ")}</div>
+                <h4 style="color: #d1242f;">🍕 Custom Pizza</h4>
+                <div class="pizza-ingredients" style="font-size: 2rem; margin: 1rem 0;">${ingredients.join(
+                  " "
                 )}</div>
-                <div style="color: #28a745; font-size: 2.5rem; font-weight: bold; margin-top: 1rem;">
-                    💵 $${result.price || result.total || "N/A"}
+                <div style="color: #28a745; font-size: 1.5rem; font-weight: bold; margin-top: 1rem;">
+                    💵 $${price} USD / €${price} EUR
                 </div>
                 <div class="alert alert-info" style="margin-top: 1rem;">
                     ℹ️ <strong>Ingredients:</strong> ${
