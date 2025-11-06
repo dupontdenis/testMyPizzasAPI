@@ -20,6 +20,19 @@ import {
  * Sets up all event listeners when the page loads
  */
 function initApp() {
+  // Accordion toggle functionality (for custom price raw response)
+  document.addEventListener("click", (e) => {
+    if (e.target.matches(".accordion-button")) {
+      const target = e.target.getAttribute("data-bs-target");
+      if (target) {
+        const collapse = document.querySelector(target);
+        if (collapse) {
+          collapse.classList.toggle("show");
+        }
+      }
+    }
+  });
+
   // Main action buttons
   document
     .getElementById("btn-get-all-pizzas")

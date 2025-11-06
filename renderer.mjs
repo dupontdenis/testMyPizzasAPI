@@ -3,20 +3,18 @@
  */
 
 /**
- * Render pizzas in a Bootstrap card grid
+ * Render pizzas in a card grid
  * @param {Array} pizzas - Array of pizza objects
  * @param {boolean} showPrice - Whether to display prices
  * @returns {string} - HTML string for pizza grid
  */
 export function renderPizzaGrid(pizzas, showPrice = false) {
   return `
-        <div class="row g-4">
+        <div class="row">
             ${pizzas.map((pizza) => renderPizzaCard(pizza, showPrice)).join("")}
         </div>
-        <div class="alert alert-info mt-4 mb-0">
-            <i class="bi bi-info-circle-fill"></i> Total: <strong>${
-              pizzas.length
-            }</strong> pizza(s)
+        <div class="alert alert-info">
+            ℹ️ Total: <strong>${pizzas.length}</strong> pizza(s)
         </div>
     `;
 }
@@ -29,24 +27,20 @@ export function renderPizzaGrid(pizzas, showPrice = false) {
  */
 function renderPizzaCard(pizza, showPrice) {
   return `
-        <div class="col-md-6 col-lg-4">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="card-body">
-                    <h5 class="card-title fw-bold text-primary">${
-                      pizza.name || "Unnamed Pizza"
-                    }</h5>
-                    <p class="card-text text-muted small">
-                        <i class="bi bi-hash"></i> ID: ${pizza.id}
-                    </p>
-                    <div class="pizza-ingredients my-3">
-                        ${
-                          pizza.ingredients
-                            ? pizza.ingredients.join(" ")
-                            : "No ingredients"
-                        }
-                    </div>
-                    ${showPrice && pizza.price ? renderPrice(pizza.price) : ""}
+        <div class="card">
+            <div class="card-body">
+                <h5>${pizza.name || "Unnamed Pizza"}</h5>
+                <p class="muted">
+                    🆔 ID: ${pizza.id}
+                </p>
+                <div class="pizza-ingredients">
+                    ${
+                      pizza.ingredients
+                        ? pizza.ingredients.join(" ")
+                        : "No ingredients"
+                    }
                 </div>
+                ${showPrice && pizza.price ? renderPrice(pizza.price) : ""}
             </div>
         </div>
     `;
@@ -58,8 +52,8 @@ function renderPizzaCard(pizza, showPrice) {
  * @returns {string} - HTML string for price
  */
 function renderPrice(price) {
-  return `<div class="text-success fs-4 fw-bold">
-            <i class="bi bi-currency-dollar"></i>${price}
+  return `<div style="color: #28a745; font-size: 1.5rem; font-weight: bold;">
+            💵 $${price}
         </div>`;
 }
 
@@ -70,15 +64,15 @@ function renderPrice(price) {
  */
 export function renderIngredientPrices(prices) {
   return `
-        <div class="row g-4">
+        <div class="row">
             ${Object.entries(prices)
               .map(([ingredient, price]) =>
                 renderIngredientCard(ingredient, price)
               )
               .join("")}
         </div>
-        <div class="alert alert-info mt-4 mb-0">
-            <i class="bi bi-info-circle-fill"></i> Total: <strong>${
+        <div class="alert alert-info">
+            ℹ️ Total: <strong>${
               Object.keys(prices).length
             }</strong> ingredient(s)
         </div>
@@ -93,13 +87,11 @@ export function renderIngredientPrices(prices) {
  */
 function renderIngredientCard(ingredient, price) {
   return `
-        <div class="col-md-6 col-lg-3">
-            <div class="card text-center shadow-sm border-0">
-                <div class="card-body">
-                    <div class="pizza-ingredients mb-2">${ingredient}</div>
-                    <div class="text-success fs-3 fw-bold">
-                        <i class="bi bi-currency-dollar"></i>${price}
-                    </div>
+        <div class="card">
+            <div class="card-body" style="text-align: center;">
+                <div class="pizza-ingredients">${ingredient}</div>
+                <div style="color: #28a745; font-size: 1.8rem; font-weight: bold;">
+                    💵 $${price}
                 </div>
             </div>
         </div>
@@ -114,27 +106,19 @@ function renderIngredientCard(ingredient, price) {
  */
 export function renderPizzaPrice(priceData, priceId) {
   return `
-        <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6">
-                <div class="card shadow border-0">
-                    <div class="card-body text-center p-4">
-                        <h4 class="card-title text-primary fw-bold">${
-                          priceData.name || "Pizza"
-                        }</h4>
-                        <p class="text-muted"><i class="bi bi-hash"></i> ID: ${priceId}</p>
-                        ${
-                          priceData.ingredients
-                            ? `<div class="pizza-ingredients my-3">${priceData.ingredients.join(
-                                " "
-                              )}</div>`
-                            : ""
-                        }
-                        <div class="display-4 text-success fw-bold mt-3">
-                            <i class="bi bi-currency-dollar"></i>${
-                              priceData.price
-                            }
-                        </div>
-                    </div>
+        <div class="card" style="max-width: 600px; margin: 0 auto;">
+            <div class="card-body" style="text-align: center; padding: 2rem;">
+                <h4>${priceData.name || "Pizza"}</h4>
+                <p class="muted">🆔 ID: ${priceId}</p>
+                ${
+                  priceData.ingredients
+                    ? `<div class="pizza-ingredients">${priceData.ingredients.join(
+                        " "
+                      )}</div>`
+                    : ""
+                }
+                <div style="color: #28a745; font-size: 2.5rem; font-weight: bold; margin-top: 1rem;">
+                    💵 $${priceData.price}
                 </div>
             </div>
         </div>
@@ -149,45 +133,33 @@ export function renderPizzaPrice(priceData, priceId) {
  */
 export function renderCustomPizzaPrice(ingredients, result) {
   return `
-        <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6">
-                <div class="card shadow border-0">
-                    <div class="card-body text-center p-4">
-                        <h4 class="card-title text-danger fw-bold">Custom Pizza</h4>
-                        <div class="pizza-ingredients my-3">${ingredients.join(
-                          " "
-                        )}</div>
-                        <div class="display-4 text-success fw-bold mt-3">
-                            <i class="bi bi-currency-dollar"></i>${
-                              result.price || result.total || "N/A"
-                            }
-                        </div>
-                        <div class="alert alert-info mt-4 mb-0">
-                            <i class="bi bi-info-circle-fill"></i> 
-                            <strong>Ingredients:</strong> ${
-                              result.ingredients
-                                ? result.ingredients.join(", ")
-                                : ingredients.join(", ")
-                            }
-                        </div>
-                    </div>
+        <div class="card" style="max-width: 600px; margin: 0 auto;">
+            <div class="card-body" style="text-align: center; padding: 2rem;">
+                <h4 style="color: #d1242f;">Custom Pizza</h4>
+                <div class="pizza-ingredients">${ingredients.join(" ")}</div>
+                )}</div>
+                <div style="color: #28a745; font-size: 2.5rem; font-weight: bold; margin-top: 1rem;">
+                    💵 $${result.price || result.total || "N/A"}
+                </div>
+                <div class="alert alert-info" style="margin-top: 1rem;">
+                    ℹ️ <strong>Ingredients:</strong> ${
+                      result.ingredients
+                        ? result.ingredients.join(", ")
+                        : ingredients.join(", ")
+                    }
                 </div>
             </div>
         </div>
-        <div class="accordion mt-4" id="rawResponse">
+        <div class="accordion" id="rawResponse">
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRaw">
-                        <i class="bi bi-code-square"></i> View Raw Response
+                        💻 View Raw Response
                     </button>
                 </h2>
                 <div id="collapseRaw" class="accordion-collapse collapse" data-bs-parent="#rawResponse">
                     <div class="accordion-body">
-                        <pre class="mb-0">${JSON.stringify(
-                          result,
-                          null,
-                          2
-                        )}</pre>
+                        <pre>${JSON.stringify(result, null, 2)}</pre>
                     </div>
                 </div>
             </div>

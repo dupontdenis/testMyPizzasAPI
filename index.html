@@ -5,142 +5,107 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pizza API Tester 🍕</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
   <div class="container">
     <h1 class="main-title">🍕 Pizza API Tester 🍕</h1>
-    <p class="text-center text-white mb-4">
-      <a href="https://mypizzasapi.onrender.com/" target="_blank" rel="noopener"
-        class="text-white text-decoration-none">
-        <i class="bi bi-link-45deg"></i> https://mypizzasapi.onrender.com/
+    <p class="subtitle">
+      <a href="https://mypizzasapi.onrender.com/" target="_blank" rel="noopener">
+        🔗 https://mypizzasapi.onrender.com/
       </a>
     </p>
 
     <!-- Controls Card -->
-    <div class="card shadow-lg mb-4">
-      <div class="card-header card-header-gradient text-white py-3">
-        <h3 class="mb-0"><i class="bi bi-lightning-charge-fill"></i> Choose an API Endpoint</h3>
+    <div class="card">
+      <div class="card-header">
+        <h3>⚡ Choose an API Endpoint</h3>
       </div>
-      <div class="card-body p-4">
-        <div class="row g-3 mb-3">
-          <div class="col-md-6 col-lg-4">
-            <button id="btn-get-all-pizzas" class="btn btn-primary w-100 py-3 fw-bold">
-              <i class="bi bi-list-ul"></i> Get All Pizzas
-            </button>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <button id="btn-get-pizza-by-id" class="btn btn-info w-100 py-3 fw-bold">
-              <i class="bi bi-search"></i> Get Pizza By ID
-            </button>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <button id="btn-get-pizzas-with-prices" class="btn btn-success w-100 py-3 fw-bold">
-              <i class="bi bi-currency-dollar"></i> Get Pizzas With Prices
-            </button>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <button id="btn-get-ingredient-prices" class="btn btn-warning w-100 py-3 fw-bold">
-              <i class="bi bi-receipt"></i> Get Ingredient Prices
-            </button>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <button id="btn-search-by-ingredients" class="btn btn-secondary w-100 py-3 fw-bold">
-              <i class="bi bi-funnel-fill"></i> Search By Ingredients
-            </button>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <button id="btn-get-pizza-price" class="btn btn-dark w-100 py-3 fw-bold">
-              <i class="bi bi-cash-coin"></i> Get Pizza Price
-            </button>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <button id="btn-compute-custom-price" class="btn btn-outline-primary w-100 py-3 fw-bold">
-              <i class="bi bi-palette-fill"></i> Compute Custom Price
-            </button>
-          </div>
+      <div class="card-body">
+        <div class="button-grid">
+          <button id="btn-get-all-pizzas" class="btn btn-primary">
+            📋 Get All Pizzas
+          </button>
+          <button id="btn-get-pizza-by-id" class="btn btn-info">
+            🔍 Get Pizza By ID
+          </button>
+          <button id="btn-get-pizzas-with-prices" class="btn btn-success">
+            💰 Get Pizzas With Prices
+          </button>
+          <button id="btn-get-ingredient-prices" class="btn btn-warning">
+            🧾 Get Ingredient Prices
+          </button>
+          <button id="btn-search-by-ingredients" class="btn btn-secondary">
+            🔎 Search By Ingredients
+          </button>
+          <button id="btn-get-pizza-price" class="btn btn-dark">
+            💵 Get Pizza Price
+          </button>
+          <button id="btn-compute-custom-price" class="btn btn-outline">
+            🎨 Compute Custom Price
+          </button>
         </div>
 
         <!-- Input for Get Pizza By ID -->
         <div id="input-byId" class="input-section">
-          <div class="card border-info">
-            <div class="card-body bg-light">
-              <label for="pizzaId" class="form-label fw-bold">Enter Pizza ID:</label>
-              <input type="text" class="form-control form-control-lg mb-3" id="pizzaId"
-                placeholder="e.g., b3b9d1f2-5c3e-45d7-8b27-2f1a6b2e5c22">
-              <button id="submit-pizza-by-id" class="btn btn-info w-100 btn-lg">
-                <i class="bi bi-search"></i> Get Pizza
-              </button>
-            </div>
+          <div class="input-card">
+            <label for="pizzaId">Enter Pizza ID:</label>
+            <input type="text" id="pizzaId" placeholder="e.g., b3b9d1f2-5c3e-45d7-8b27-2f1a6b2e5c22">
+            <button id="submit-pizza-by-id" class="btn btn-info">
+              🔍 Get Pizza
+            </button>
           </div>
         </div>
 
         <!-- Input for Search By Ingredients -->
         <div id="input-search" class="input-section">
-          <div class="card border-secondary">
-            <div class="card-body bg-light">
-              <label for="searchIngredients" class="form-label fw-bold">Enter Ingredients (emoji,
-                comma-separated):</label>
-              <input type="text" class="form-control form-control-lg mb-3" id="searchIngredients"
-                placeholder="e.g., 🍅,🧀,🍄">
-              <button id="submit-search-pizzas" class="btn btn-secondary w-100 btn-lg">
-                <i class="bi bi-funnel-fill"></i> Search Pizzas
-              </button>
-            </div>
+          <div class="input-card">
+            <label for="searchIngredients">Enter Ingredients (emoji, comma-separated):</label>
+            <input type="text" id="searchIngredients" placeholder="e.g., 🍅,🧀,🍄">
+            <button id="submit-search-pizzas" class="btn btn-secondary">
+              🔎 Search Pizzas
+            </button>
           </div>
         </div>
 
         <!-- Input for Get Pizza Price -->
         <div id="input-price" class="input-section">
-          <div class="card border-dark">
-            <div class="card-body bg-light">
-              <label for="priceId" class="form-label fw-bold">Enter Pizza ID:</label>
-              <input type="text" class="form-control form-control-lg mb-3" id="priceId"
-                placeholder="e.g., b3b9d1f2-5c3e-45d7-8b27-2f1a6b2e5c22">
-              <button id="submit-pizza-price" class="btn btn-dark w-100 btn-lg">
-                <i class="bi bi-cash-coin"></i> Get Price
-              </button>
-            </div>
+          <div class="input-card">
+            <label for="priceId">Enter Pizza ID:</label>
+            <input type="text" id="priceId" placeholder="e.g., b3b9d1f2-5c3e-45d7-8b27-2f1a6b2e5c22">
+            <button id="submit-pizza-price" class="btn btn-dark">
+              💵 Get Price
+            </button>
           </div>
         </div>
 
         <!-- Input for Custom Pizza Price -->
         <div id="input-custom" class="input-section">
-          <div class="card border-primary">
-            <div class="card-body bg-light">
-              <label for="customIngredients" class="form-label fw-bold">Enter Ingredients (emoji,
-                comma-separated):</label>
-              <input type="text" class="form-control form-control-lg mb-3" id="customIngredients"
-                placeholder="e.g., 🍅,🧀,🍄,🌶️">
-              <button id="submit-custom-price" class="btn btn-outline-primary w-100 btn-lg">
-                <i class="bi bi-palette-fill"></i> Compute Price
-              </button>
-            </div>
+          <div class="input-card">
+            <label for="customIngredients">Enter Ingredients (emoji, comma-separated):</label>
+            <input type="text" id="customIngredients" placeholder="e.g., 🍅,🧀,🍄,🌶️">
+            <button id="submit-custom-price" class="btn btn-outline">
+              🎨 Compute Price
+            </button>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Results Card -->
-    <div class="card shadow-lg" id="resultsCard">
-      <div class="card-header card-header-gradient text-white py-3">
-        <h3 class="mb-0"><i class="bi bi-bar-chart-fill"></i> Results</h3>
+    <div class="card">
+      <div class="card-header">
+        <h3>📊 Results</h3>
       </div>
-      <div class="card-body p-4" id="results">
-        <div class="alert alert-info mb-0">
-          <i class="bi bi-info-circle-fill"></i> Click a button above to test the API endpoints
+      <div class="card-body" id="results">
+        <div class="alert alert-info">
+          ℹ️ Click a button above to test the API endpoints
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script type="module" src="app.mjs"></script>
 </body>
 

@@ -21,11 +21,9 @@ export function displayResults(title, content) {
 export function showLoading() {
   const resultsDiv = document.getElementById("results");
   resultsDiv.innerHTML = `
-        <div class="text-center py-5">
-            <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-            <p class="mt-3 fs-5 text-muted">🍕 Fetching data from API...</p>
+        <div class="text-center" style="padding: 3rem 0;">
+            <div class="spinner-border"></div>
+            <p style="margin-top: 1rem; color: #586069;">🍕 Fetching data from API...</p>
         </div>
     `;
 }
@@ -38,7 +36,7 @@ export function showError(error) {
   displayResults(
     "❌ Error",
     `<div class="alert alert-danger">
-            <i class="bi bi-exclamation-triangle-fill"></i> <strong>Error:</strong> ${error.message}
+            ⚠️ <strong>Error:</strong> ${error.message}
         </div>`
   );
 }

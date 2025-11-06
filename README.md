@@ -11,7 +11,7 @@ This project teaches:
 - ✅ **Fetch API** for HTTP requests
 - ✅ **Separation of Concerns** (modular architecture)
 - ✅ **Event Listeners** (no inline onclick)
-- ✅ **Bootstrap 5** UI framework
+- ✅ **Vanilla CSS** (no frameworks)
 - ✅ **DOM Manipulation**
 - ✅ **Error Handling**
 
@@ -21,8 +21,9 @@ This project teaches:
 
 ```
 testMyPizzasAPI/
-├── index.html          # Main UI with Bootstrap
-├── styles.css          # Custom styling
+├── index.html          # Main UI
+├── styles-blog.css     # Clean blog-style CSS (default)
+├── styles.css          # Alternative gradient style
 ├── app.mjs             # Application initialization (entry point)
 ├── pizzaAPI.mjs        # API communication layer
 ├── handlers.mjs        # Event handlers (business logic)
@@ -39,7 +40,7 @@ testMyPizzasAPI/
 ```
 ┌─────────────────────────────────────────┐
 │           index.html (UI)               │
-│         (Bootstrap Interface)           │
+│         (Vanilla CSS/JS)                │
 └─────────────────┬───────────────────────┘
                   │
 ┌─────────────────▼───────────────────────┐
@@ -117,7 +118,7 @@ export function getInputValue(fieldId)
 
 - ✅ Direct DOM manipulation with `getElementById`
 - ✅ Template literals for HTML generation
-- ✅ Bootstrap classes for styling
+- ✅ Custom CSS classes for styling
 - ✅ Separation of UI logic from business logic
 
 **Example:**
@@ -152,7 +153,7 @@ export function renderCustomPizzaPrice(ingredients, result)
 - ✅ Pure functions (no side effects)
 - ✅ Template literals for HTML generation
 - ✅ `Array.map()` for transforming data
-- ✅ Responsive grid with Bootstrap
+- ✅ Responsive grid with CSS Grid
 - ✅ Helper functions (not exported) for internal use
 
 **Example:**
@@ -162,7 +163,7 @@ import { renderPizzaGrid } from "./renderer.mjs";
 
 const pizzas = [{ name: "Margherita", id: "123", ingredients: ["🍅", "🧀"] }];
 const html = renderPizzaGrid(pizzas, true);
-// Returns HTML string with Bootstrap cards
+// Returns HTML string with custom card styling
 ```
 
 ---
@@ -295,7 +296,7 @@ Base URL: `https://mypizzasapi.onrender.com/API`
 ### **Example 1: Get All Pizzas**
 
 1. Click **"Get All Pizzas"** button
-2. See grid of Bootstrap cards
+2. See grid of pizza cards
 3. Each card shows: name, ID, ingredients
 
 ### **Example 2: Get Pizza By ID**
@@ -420,7 +421,7 @@ python -m http.server 8000
 - [MDN: JavaScript Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
 - [MDN: Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 - [MDN: Async/Await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)
-- [Bootstrap 5 Docs](https://getbootstrap.com/docs/5.3/)
+- [MDN: CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)
 
 ---
 
@@ -433,7 +434,7 @@ This project demonstrates:
 - Async programming
 - RESTful API consumption
 - Event-driven programming
-- Responsive design with Bootstrap
+- Responsive design with CSS Grid
 
 **Perfect for teaching:**
 
