@@ -3,6 +3,13 @@
  */
 
 /**
+ * Create a delay promise (useful for minimum spinner time)
+ * @param {number} ms - Milliseconds to wait
+ * @returns {Promise} - Promise that resolves after delay
+ */
+export const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+/**
  * Display results in the results section
  * @param {string} title - Title of the results
  * @param {string} content - HTML content to display
@@ -26,6 +33,17 @@ export function showLoading() {
             <p style="margin-top: 1rem; color: #586069;">🍕 Fetching data from API...</p>
         </div>
     `;
+}
+
+/**
+ * Fetch data with minimum loading time (prevents spinner flicker)
+ * @param {Function} fetchFunction - Async function that fetches data
+ * @param {number} minDelay - Minimum delay in milliseconds (default 1000ms)
+ * @returns {Promise} - Promise that resolves with the fetched data
+ */
+export async function fetchWithMinDelay(fetchFunction, minDelay = 1500) {
+  const [data] = await Promise.all([fetchFunction(), delay(minDelay)]);
+  return data;
 }
 
 /**
