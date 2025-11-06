@@ -52,8 +52,8 @@ function renderPizzaCard(pizza, showPrice) {
  * @returns {string} - HTML string for price
  */
 function renderPrice(price) {
-  return `<div style="color: #28a745; font-size: 1.1rem; font-weight: bold;">
-            💵€ ${price} EUR
+  return `<div style="color: #0969da; font-size: 1.1rem; font-weight: bold;">
+            💶 €${price}
         </div>`;
 }
 
@@ -90,8 +90,8 @@ function renderIngredientCard(ingredient, price) {
         <div class="card">
             <div class="card-body" style="text-align: center;">
                 <div class="pizza-ingredients">${ingredient}</div>
-                <div style="color: #28a745; font-size: 1.2rem; font-weight: bold;">
-                    💵 $${price} USD / €${price} EUR
+                <div style="color: #0969da; font-size: 1.2rem; font-weight: bold;">
+                    💶 €${price}
                 </div>
             </div>
         </div>
@@ -117,8 +117,8 @@ export function renderPizzaPrice(priceData, priceId) {
                       )}</div>`
                     : ""
                 }
-                <div style="color: #28a745; font-size: 1.8rem; font-weight: bold; margin-top: 1rem;">
-                    💵 $${priceData.price} USD / €${priceData.price} EUR
+                <div style="color: #0969da; font-size: 1.8rem; font-weight: bold; margin-top: 1rem;">
+                    💶 €${priceData.price}
                 </div>
             </div>
         </div>
@@ -140,8 +140,8 @@ export function renderCustomPizzaPrice(ingredients, result) {
                 <div class="pizza-ingredients" style="font-size: 2rem; margin: 1rem 0;">${ingredients.join(
                   " "
                 )}</div>
-                <div style="color: #28a745; font-size: 1.5rem; font-weight: bold; margin-top: 1rem;">
-                    💵 $${price} USD / €${price} EUR
+                <div style="color: #0969da; font-size: 1.5rem; font-weight: bold; margin-top: 1rem;">
+                    💶 €${price}
                 </div>
                 <div class="alert alert-info" style="margin-top: 1rem;">
                     ℹ️ <strong>Ingredients:</strong> ${
