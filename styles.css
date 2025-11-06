@@ -1,0 +1,50 @@
+body {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 30px 0;
+}
+
+.main-title {
+  color: white;
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 3.5em;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+}
+
+.input-section {
+  display: none;
+  margin-top: 20px;
+}
+
+.input-section.active {
+  display: block;
+}
+
+.pizza-ingredients {
+  font-size: 2em;
+  text-align: center;
+  margin: 15px 0;
+}
+
+pre {
+  background: #282c34;
+  color: #abb2bf;
+  padding: 15px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.card {
+  border: none;
+  border-radius: 15px;
+}
+
+.card-header {
+  border-radius: 15px 15px 0 0 !important;
+}
+
+.card-header-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
