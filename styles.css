@@ -1,4 +1,4 @@
-/* Alternative Blog Style from useAPIBLOGSIMPLE */
+/* Found of this SUPERDUPONT */
 
 * {
   box-sizing: border-box;
@@ -212,6 +212,7 @@ th {
   text-align: center;
   margin-bottom: 1rem;
 }
+
 .subtitle {
   text-align: center;
   margin-bottom: 1.5rem;
@@ -338,7 +339,9 @@ th {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .text-center {
