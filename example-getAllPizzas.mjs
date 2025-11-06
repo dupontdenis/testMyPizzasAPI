@@ -13,7 +13,7 @@ import { renderPizzaGrid } from "./renderer.mjs"; // HTML rendering
 showLoading();
 
 // Step 3: Fetch pizzas (with minimum delay handled by UI)
-const pizzas = await fetchWithMinDelay(getAllPizzas);
+const pizzas = await fetchWithMinDelay(getAllPizzas,4000);
 
 // Step 4: Render pizzas as HTML and display in the page
 displayResults("📋 All Pizzas", renderPizzaGrid(pizzas));

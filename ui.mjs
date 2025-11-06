@@ -41,7 +41,7 @@ export function showLoading() {
  * @param {number} minDelay - Minimum delay in milliseconds (default 1000ms)
  * @returns {Promise} - Promise that resolves with the fetched data
  */
-export async function fetchWithMinDelay(fetchFunction, minDelay = 1500) {
+export async function fetchWithMinDelay(fetchFunction, minDelay = 800) {
   const [data] = await Promise.all([fetchFunction(), delay(minDelay)]);
   return data;
 }
