@@ -53,7 +53,7 @@ function renderPizzaCard(pizza, showPrice) {
  */
 function renderPrice(price) {
   return `<div style="color: #0969da; font-size: 1.1rem; font-weight: bold;">
-            💶 €${price}
+            💶 ${price} €
         </div>`;
 }
 
@@ -91,7 +91,7 @@ function renderIngredientCard(ingredient, price) {
             <div class="card-body" style="text-align: center;">
                 <div class="pizza-ingredients">${ingredient}</div>
                 <div style="color: #0969da; font-size: 1.2rem; font-weight: bold;">
-                    💶 €${price}
+                    💶 ${price} €
                 </div>
             </div>
         </div>
@@ -118,7 +118,7 @@ export function renderPizzaPrice(priceData, priceId) {
                     : ""
                 }
                 <div style="color: #0969da; font-size: 1.8rem; font-weight: bold; margin-top: 1rem;">
-                    💶 €${priceData.price}
+                    💶 ${priceData.price} €
                 </div>
             </div>
         </div>
@@ -141,7 +141,7 @@ export function renderCustomPizzaPrice(ingredients, result) {
                   " "
                 )}</div>
                 <div style="color: #0969da; font-size: 1.5rem; font-weight: bold; margin-top: 1rem;">
-                    💶 €${price}
+                    💶 ${price} €
                 </div>
                 <div class="alert alert-info" style="margin-top: 1rem;">
                     ℹ️ <strong>Ingredients:</strong> ${
