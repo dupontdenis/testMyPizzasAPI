@@ -33,6 +33,15 @@ export async function handleGetAllPizzas() {
   showLoading();
   try {
     const pizzas = await getAllPizzas();
+    if (!Array.isArray(pizzas)) {
+      showError(
+        new Error(
+          "API response is not an array. Check API or CORS/proxy settings. Value: " +
+            JSON.stringify(pizzas)
+        )
+      );
+      return;
+    }
     displayResults("📋 All Pizzas", renderPizzaGrid(pizzas));
   } catch (error) {
     showError(error);

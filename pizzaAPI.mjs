@@ -15,8 +15,8 @@ export async function getAllPizzas() {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    const data = await response.json();
-    return data;
+    const result = await response.json();
+    return result.data;
   } catch (error) {
     console.error("Error fetching all pizzas:", error);
     throw error;
@@ -34,8 +34,8 @@ export async function getPizzaById(id) {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    const data = await response.json();
-    return data;
+    const result = await response.json();
+    return result.data;
   } catch (error) {
     console.error(`Error fetching pizza with ID ${id}:`, error);
     throw error;
@@ -52,8 +52,8 @@ export async function getPizzasWithPrices() {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    const data = await response.json();
-    return data;
+    const result = await response.json();
+    return result.data;
   } catch (error) {
     console.error("Error fetching pizzas with prices:", error);
     throw error;
@@ -70,8 +70,8 @@ export async function getIngredientPrices() {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    const data = await response.json();
-    return data;
+    const result = await response.json();
+    return result.data;
   } catch (error) {
     console.error("Error fetching ingredient prices:", error);
     throw error;
@@ -92,8 +92,8 @@ export async function searchPizzasByIngredients(ingredients) {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    const data = await response.json();
-    return data;
+    const result = await response.json();
+    return result.data;
   } catch (error) {
     console.error("Error searching pizzas by ingredients:", error);
     throw error;
@@ -111,8 +111,8 @@ export async function getPizzaPrice(id) {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    const data = await response.json();
-    return data;
+    const result = await response.json();
+    return result.data;
   } catch (error) {
     console.error(`Error fetching price for pizza ${id}:`, error);
     throw error;
@@ -136,8 +136,8 @@ export async function computeCustomPizzaPrice(ingredients) {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    const data = await response.json();
-    return data;
+    const result = await response.json();
+    return result.data;
   } catch (error) {
     console.error("Error computing custom pizza price:", error);
     throw error;
